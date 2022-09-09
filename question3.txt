@@ -1,0 +1,16 @@
+Go documentation states that
+    Sort has time complexity O(n*log(n))
+    Stable has time complexity O(n*log(n)*log(n))
+Source: pkg.go.dev/sort#Sort
+
+We would expect Stable to increase exponentially in completion time due to its higher complexity
+
+When we run question 2 with very large values, such as 100,000, we get the following results:
+Sort duration for Slice:  25.099862ms
+Stable duration for Slice:  411.334µs
+
+Although both programs are executing rather quickly, you can see that the Stable function is taking
+ much more time than the Sort function.
+
+ Therefore, my observation of the behavior of the program DOES follow Big-O time analysis of
+ Sort and Stable from the Go official documentation, for large values of n where n=len(slice).
